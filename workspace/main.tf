@@ -1,31 +1,10 @@
 terraform {
   required_providers {
     snowflake = {
-      source  = "Snowflake-Labs/snowflake"
-      version = ">= 0.74.3"
+      source  = "snowflakedb/snowflake"
+      version = ">= 0.74.3"  # Latest recommended stable version
     }
   }
 }
 
 provider "snowflake" {}
-
-module "users" {
-  source = "../users"
-  providers = {
-    snowflake = snowflake
-  }
-}
-
-module "roles" {
-  source = "../roles"
-  providers = {
-    snowflake = snowflake
-  }
-}
-
-module "policies" {
-  source = "../policies"
-  providers = {
-    snowflake = snowflake
-  }
-}
