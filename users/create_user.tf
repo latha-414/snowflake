@@ -8,7 +8,7 @@
 #}
 
 resource "snowflake_user" "demo_user" {
-  name         = "SYS_latha"
-  password     = "latha123"
+  name         = "SYS_lathapal"
+  password     = "latha1234"
   default_role = "SYSADMIN"
 }
