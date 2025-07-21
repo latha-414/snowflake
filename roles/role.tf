@@ -7,6 +7,6 @@
   #}
 #}
 
-resource "snowflake_role" "demo_role" {
-  name = "DEMO_ROLE"
+resource "snowflake_role" "snow_role" {
+  name = "SNOW_ROLE"
 }
