@@ -1,5 +1,5 @@
-resource "snowflake_warehouse" "test_hcp" {
-  name                          = "TEST_HCP"
+resource "snowflake_warehouse" "test_snow" {
+  name                          = "TEST_SNOW"
   warehouse_size                = "XSMALL"
   auto_suspend                  = 60
   auto_resume                   = false
