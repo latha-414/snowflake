@@ -7,9 +7,26 @@ terraform {
   }
 }
 
-provider "snowflake" {
-  account  = var.snowflake_account       # "heygkbz-lw92235"
-  username = var.snowflake_username
-  password = var.snowflake_password
-  role     = var.snowflake_role
+provider "snowflake" {}
+
+module "users" {
+  source = "../users"
+  providers = {
+    snowflake = snowflake
+  }
 }
+
+module "roles" {
+  source = "../roles"
+  providers = {
+    snowflake = snowflake
+  }
+}
+
+module "policies" {
+  source = "../policies"
+  providers = {
+    snowflake = snowflake
+  }
+}
+
