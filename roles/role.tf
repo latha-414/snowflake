@@ -1,7 +1,7 @@
 terraform {
   required_providers {
     snowflake = {
-      source  = "snowflakedb/snowflake"
+      source  = "hashicorp/snowflake"
       version = ">= 0.74.3"  # Latest recommended stable version
     }
   }
