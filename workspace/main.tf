@@ -1,15 +1,10 @@
 terraform {
   required_providers {
     snowflake = {
-      source  = "Snowflake-Labs/snowflake"
+      source  = "Snowflakedb/snowflake"
       version = ">= 0.74.3"  # Latest recommended stable version
     }
   }
 }
 
-provider "snowflake" {
-  account  = "HEYGKBZ-LW92235"
-  username = "LATHA"
-  password = "Lathapaladugu@1722"
-  role     = "ACCOUNTADMIN" 
-}
+provider "snowflake" {}
