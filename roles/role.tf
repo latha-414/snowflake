@@ -7,6 +7,9 @@ terraform {
   }
 }
 
-resource "snowflake_role" "snow_role" {
-  name = "SNOW_ROLE"
+resource "snowflake_role" "roles" {
+  for_each = toset(var.role_list)
+
+  name    = each.value
+  comment = "Role created by Terraform"
 }
