@@ -9,20 +9,20 @@ terraform {
 
 provider "snowflake" {}
 
+module "warehouse" {
+  source          = "./warehouse"
+  new_warehouses  = var.new_warehouses
+}
+
 module "users" {
-  source = "./users"
+  source     = "./users"
+  user_list  = var.user_list
 }
 
 module "roles" {
-  source = "./roles"
+  source     = "./roles"
+  role_list  = var.role_list
 }
 
-module "policies" {
-  source = "./policies"
-}
-
-module "warehouse" {
-  source = "./warehouse"
-}
 
 
