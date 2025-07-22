@@ -1,3 +1,12 @@
+terraform {
+  required_providers {
+    snowflake = {
+      source  = "Snowflake-Labs/snowflake"
+      version = "~> 0.73.0"
+    }
+  }
+}
+
 resource "snowflake_warehouse" "test_snow" {
   name                          = "TEST_SNOW"
   warehouse_size                = "XSMALL"
