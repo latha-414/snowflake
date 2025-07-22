@@ -10,29 +10,19 @@ terraform {
 provider "snowflake" {}
 
 module "users" {
-  source = "../users"
-  providers = {
-    snowflake = snowflake
-  }
+  source = "./users"
 }
 
 module "roles" {
-  source = "../roles"
-  providers = {
-    snowflake = snowflake
-  }
+  source = "./roles"
 }
 
 module "policies" {
-  source = "../policies"
-  providers = {
-    snowflake = snowflake
-  }
+  source = "./policies"
 }
 
 module "warehouse" {
-  source = "../warehouse"
-  providers = {
-    snowflake = snowflake
-  }
+  source = "./warehouse"
 }
+
+
