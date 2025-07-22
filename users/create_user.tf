@@ -7,8 +7,11 @@ terraform {
   }
 }
 
-resource "snowflake_user" "demo_user" {
-  name         = "SYS_lathapal"
-  password     = "latha1234"
-  default_role = "SYSADMIN"
+resource "snowflake_user" "users" {
+  for_each = toset(var.user_list)
+
+  name     = each.value
+  password = "TempUser123!"         # Simple static password (change if needed)
+  comment  = "User created by Terraform"
+  disabled = false
 }
