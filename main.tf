@@ -30,8 +30,8 @@ module "policies" {
   }
 }
 
-module "users" {
-  source = "../users"
+module "warehouse" {
+  source = "../warehouse"
   providers = {
     snowflake = snowflake
   }
