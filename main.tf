@@ -29,3 +29,10 @@ module "policies" {
     snowflake = snowflake
   }
 }
+
+module "users" {
+  source = "../users"
+  providers = {
+    snowflake = snowflake
+  }
+}
