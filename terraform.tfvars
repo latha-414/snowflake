@@ -4,6 +4,11 @@ new_warehouses = {
   PROD_WH  = "Warehouse for development"
 }
 
+warehouse_owners = {
+   STAGE_WH = "SYSADMIN"
+   PROD_WH  = "USERADMIN"
+}
+
 usernames = [
   "stage_user",
   "prod_user"
