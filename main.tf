@@ -15,8 +15,8 @@ module "warehouse" {
 }
 
 module "users" {
-  source     = "./users"
-  user_list  = var.user_list
+  source            = "./users"
+  user_credentials  = var.user_credentials
 }
 
 module "roles" {
