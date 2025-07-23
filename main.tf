@@ -12,6 +12,7 @@ provider "snowflake" {}
 module "warehouse" {
   source          = "./warehouse"
   new_warehouses  = var.new_warehouses
+  warehouse_owners = var.warehouse_owners  # Add this line
 }
 
 module "users" {
