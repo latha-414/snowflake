@@ -23,12 +23,12 @@ resource "snowflake_warehouse" "new" {
 }
 
 # Grant ownership of each warehouse to SYSADMIN
-resource "snowflake_grant_ownership" "warehouse_ownership" {
-  for_each          = var.new_warehouses
-  object_type       = "WAREHOUSE"
-  object_name       = snowflake_warehouse.new[each.key].name
-  privilege         = "OWNERSHIP"
-  to_role          = "SYSADMIN"
+resource "snowflake_warehouse_grant" "warehouse_ownership" {
+  for_each       = var.new_warehouses
+  warehouse_name = snowflake_warehouse.new[each.key].name
+  privilege      = "OWNERSHIP"
+  roles          = ["SYSADMIN"]
   with_grant_option = true
-  depends_on       = [snowflake_warehouse.new]
+  depends_on     = [snowflake_warehouse.new]
 }
+
