@@ -10,6 +10,12 @@ user_list = [
   "qa_user"
 ]
 
+# User Passwords (new section)
+user_passwords = {
+  dev_user = "DevUser@123"
+  qa_user  = "QaUser@456"
+}
+
 # Roles
 role_list = [
   "dev_role",
