@@ -21,6 +21,10 @@ variable "user_passwords" {
   sensitive   = true
 }
 
+variable "role_owners" {
+  description = "Map of roles and their new owner roles"
+  type        = map(string)
+}
 # Roles
 variable "role_list" {
   description = "List of Snowflake roles to be created"
