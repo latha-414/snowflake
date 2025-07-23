@@ -22,16 +22,20 @@ resource "snowflake_warehouse" "new" {
   statement_timeout_in_seconds = 300
 }
 
-# Grant ownership privileges on warehouses
+# Grant ownership privileges on warehouses - CORRECTED SYNTAX
 resource "snowflake_grant_privileges_to_role" "warehouse_ownership" {
   for_each = var.new_warehouses
-
-  object_type        = "WAREHOUSE"
-  object_name        = snowflake_warehouse.new[each.key].name
+  
   privileges         = ["OWNERSHIP"]
-  roles              = ["SYSADMIN"]
+  role_name          = "SYSADMIN"  # Changed from 'roles' array to single 'role_name'
   with_grant_option  = true
-  depends_on         = [snowflake_warehouse.new]
+  
+  # Use on_schema_object block instead of direct object_type/object_name
+  on_schema_object {
+    object_type = "WAREHOUSE" 
+    object_name = snowflake_warehouse.new[each.key].name
+  }
+  
+  depends_on = [snowflake_warehouse.new]
 }
-
 
