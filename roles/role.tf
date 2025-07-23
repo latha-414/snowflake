@@ -13,3 +13,13 @@ resource "snowflake_role" "roles" {
   name    = each.value
   comment = "Role created by Terraform"
 }
+
+resource "snowflake_grant_privileges_to_role" "role_ownership_transfer" {
+  for_each = var.role_owners
+
+  privileges         = ["OWNERSHIP"]
+  object_type        = "ROLE"
+  object_name        = each.key        # Example: "stage_role"
+  role_name          = each.value      # Example: "SECURITYADMIN"
+  with_grant_option  = true
+}
