@@ -21,3 +21,14 @@ resource "snowflake_warehouse" "new" {
   scaling_policy                = "STANDARD"
   statement_timeout_in_seconds = 300
 }
+
+# Grant ownership of each warehouse to SYSADMIN
+resource "snowflake_grant_ownership" "warehouse_ownership" {
+  for_each          = var.new_warehouses
+  object_type       = "WAREHOUSE"
+  object_name       = snowflake_warehouse.new[each.key].name
+  privilege         = "OWNERSHIP"
+  to_role          = "SYSADMIN"
+  with_grant_option = true
+  depends_on       = [snowflake_warehouse.new]
+}
