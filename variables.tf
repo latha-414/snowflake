@@ -4,9 +4,13 @@ variable "new_warehouses" {
   type        = map(string)
 }
 
-# Users
-variable "user_credentials" {
-  description = "Map of users and their passwords"
+variable "usernames" {
+  description = "Set of usernames"
+  type        = set(string)
+}
+
+variable "user_passwords" {
+  description = "Map of usernames to passwords"
   type        = map(string)
   sensitive   = true
 }
