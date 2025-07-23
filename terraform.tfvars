@@ -4,8 +4,13 @@ new_warehouses = {
   PROD_WH  = "Warehouse for development"
 }
 
-# Users and their passwords
-user_credentials = {
+usernames = [
+  "stage_user",
+  "prod_user"
+]
+
+# Passwords (sensitive)
+user_passwords = {
   stage_user = "stage@12345"
   prod_user  = "prod@54321"
 }
