@@ -8,10 +8,11 @@ terraform {
 }
 
 resource "snowflake_user" "users" {
-  for_each = toset(var.user_list)
+  for_each = var.user_credentials
 
-  name     = each.value
-  password = "TempUser123!"         # Simple static password (change if needed)
+  name     = each.key
+  password = each.value
   comment  = "User created by Terraform"
   disabled = false
 }
+
