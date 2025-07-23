@@ -15,9 +15,10 @@ resource "snowflake_role" "roles" {
 }
 
 resource "snowflake_role_ownership_grant" "role_ownership_transfer" {
-  for_each         = var.role_owners
+  for_each      = var.role_owners
 
-  role_name        = each.key
-  owner_role_name  = each.value
+  on_role_name  = each.key         # Example: "stage_role"
+  to_role_name  = each.value       # Example: "SECURITYADMIN"
 }
+
 
