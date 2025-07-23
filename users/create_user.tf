@@ -8,11 +8,9 @@ terraform {
 }
 
 resource "snowflake_user" "users" {
-  for_each = var.user_credentials
-
-  name     = each.key
-  password = each.value
+  for_each = var.usernames
+  name     = each.value
+  password = var.user_passwords[each.value]
   comment  = "User created by Terraform"
   disabled = false
 }
-
