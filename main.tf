@@ -24,6 +24,7 @@ module "users" {
 module "roles" {
   source     = "./roles"
   role_list  = var.role_list
+  role_owners  = var.role_owners   # 👈 Add this line
 }
 
 
