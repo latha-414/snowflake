@@ -25,3 +25,9 @@ role_list = [
   "stage_role",
   "prod_role"
 ]
+
+role_owners = {
+  stage_role = "SECURITYADMIN"
+  prod_role  = "SECURITYADMIN"
+}
+
