@@ -22,15 +22,14 @@ resource "snowflake_warehouse" "new" {
   statement_timeout_in_seconds = 300
 }
 
-# Grant ownership privileges on warehouses - CORRECTED with on_account_object
+# Grant ownership based on warehouse-owner mapping
 resource "snowflake_grant_privileges_to_role" "warehouse_ownership" {
-  for_each = var.new_warehouses
+  for_each = var.warehouse_owners
   
   privileges         = ["OWNERSHIP"]
-  role_name          = "SYSADMIN"
+  role_name          = each.value  # The owner role for this warehouse
   with_grant_option  = true
   
-  # Use on_account_object for warehouse (not on_schema_object)
   on_account_object {
     object_type = "WAREHOUSE"
     object_name = snowflake_warehouse.new[each.key].name
@@ -38,3 +37,4 @@ resource "snowflake_grant_privileges_to_role" "warehouse_ownership" {
   
   depends_on = [snowflake_warehouse.new]
 }
+
