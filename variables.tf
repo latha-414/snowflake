@@ -5,9 +5,10 @@ variable "new_warehouses" {
 }
 
 # Users
-variable "user_list" {
-  description = "List of Snowflake users to be created"
-  type        = list(string)
+variable "user_credentials" {
+  description = "Map of users and their passwords"
+  type        = map(string)
+  sensitive   = true
 }
 
 # Roles
