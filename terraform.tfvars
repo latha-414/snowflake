@@ -4,16 +4,10 @@ new_warehouses = {
   DEV_WH  = "Warehouse for development"
 }
 
-# Users
-user_list = [
-  "dev_user",
-  "qa_user"
-]
-
-# User Passwords (new section)
-user_passwords = {
-  dev_user = "DevUser@123"
-  qa_user  = "QaUser@456"
+# Users and their passwords
+user_credentials = {
+  dev_user = "Dev@12345"
+  qa_user  = "Qa@54321"
 }
 
 # Roles
