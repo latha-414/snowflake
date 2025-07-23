@@ -4,6 +4,12 @@ variable "new_warehouses" {
   type        = map(string)
 }
 
+# Warehouse ownership mapping
+variable "warehouse_owners" {
+  description = "Map of warehouse names to their owner roles"
+  type        = map(string)
+}
+
 variable "usernames" {
   description = "Set of usernames"
   type        = set(string)
